@@ -44,13 +44,6 @@ const userSchema = new Schema({
   },
 }, { timestamps: true });
 
-userSchema.virtual('userAccounts', {
-  ref: 'accounts',
-  localField: 'email',
-  foreignField: 'accountHolder'
-})
-
-
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
