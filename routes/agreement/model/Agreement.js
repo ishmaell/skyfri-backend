@@ -20,15 +20,15 @@ const agreementSchema = new Schema({
     required: true,
   },
   paymentTerms: {
-    type: String,
+    type: Number,
     required: true,
   },
   startDate: {
-    type: String,
+    type: Date,
     required: true,
   },
   endDate: {
-    type: String,
+    type: Date,
     required: true,
   }
 }, { timestamps: true });

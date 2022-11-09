@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 9005;
 
 // routers
 const AgreementRouter = require('./routes/agreement/route.config');
+const UserRouter = require('./routes/user/route.config');
 
 // middleware for cookies
 app.use(cookieParser());
@@ -28,6 +29,7 @@ app.use(express.json());
 
 // route config
 AgreementRouter.routesConfig(app);
+UserRouter.routesConfig(app);
 
 // 404
 app.use((_, res) => {
