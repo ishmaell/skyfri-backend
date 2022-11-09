@@ -63,7 +63,6 @@ const refresh = async (req, res) => {
 
   const cookies = req.cookies;
   if (!cookies.jwt) return res.sendStatus(401); // unathorized
-  console.log('Yazo nan')
   const refreshToken = cookies.jwt;
 
 
@@ -86,33 +85,6 @@ const refresh = async (req, res) => {
     }
   );
 }
-
-// const handleLogout = async (req, res) => {
-
-//   const cookies = req.cookies;
-//   if (!cookies?.jwt) return res.status(204); // no content
-
-//   const refreshToken = cookies.jwt;
-//   // check if refreshToken is in db
-//   const foundUser = usersDB.users.find(user => user.refreshToken === refreshToken);
-
-//   if (!foundUser) {
-//     res.clearCookie('jwt', { httpOnly: true });
-//     return res.status(204);
-//   }
-
-//   // delete refreshToken from db
-//   const otherUsers = usersDB.users.filter(user => user.refreshToken !== foundUser.refreshToken);
-//   const currentUser = { ...foundUser, refreshToken: '' };
-//   usersDB.setUsers([...otherUsers, currentUser]);
-//   await fsPromises.writeFile(
-//     path.join(__dirname, '..', '..', '..', 'model', 'users.json'),
-//     JSON.stringify(usersDB.users)
-//   );
-
-//   res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true, });
-//   res.status(204);
-// }
 
 module.exports = {
   insert,
